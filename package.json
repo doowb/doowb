@@ -1,0 +1,43 @@
+{
+  "name": "doowb",
+  "private": "true",
+  "version": "0.1.0",
+  "homepage": "https://github.com/doowb/doowb",
+  "repository": "doowb/doowb",
+  "bugs": {
+    "url": "https://github.com/doowb/doowb/issues"
+  },
+  "license": "MIT",
+  "files": [],
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "devDependencies": {
+    "github-base": "^1.0.0",
+    "gulp-format-md": "^2.0.0"
+  },
+  "keywords": [
+    "doowb",
+    "github",
+    "sponsors",
+    "sponsorships",
+    "open source",
+    "oss"
+  ],
+  "verb": {
+    "toc": false,
+    "layout": "none",
+    "asyncHelpers": [
+      "src/helpers/*.js"
+    ],
+    "tasks": [
+      "readme"
+    ],
+    "plugins": [
+      "gulp-format-md"
+    ],
+    "lint": {
+      "reflinks": true
+    }
+  }
+}

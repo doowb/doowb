@@ -61,6 +61,10 @@ query {
 }
 `;
 
+const showSponsorship = (sponsorship, tier) => {
+  return sponsorship.isActive === true && sponsorship.privacyLevel === 'PUBLIC' && tier.isMatch(sponsorship.tier);
+};
+
 const withinRange = (value, min, max) => value >= min && value <= max;
 
 const tiers = {
@@ -97,7 +101,7 @@ const sponsors = async tier => {
   const response = await gql(query);
   const me = { ...response.viewer };
   const sponsorships = [...me.sponsorshipsAsMaintainer.nodes];
-  return sponsorships.filter(sponsorship => sponsorship.isActive && tiers[tier].isMatch(sponsorship.tier));
+  return sponsorships.filter(sponsorship => showSponsorship(sponsorship, tiers[tier]));
 };
 
 const formatItem = item => {
